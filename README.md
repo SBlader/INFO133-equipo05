@@ -1,1 +1,1 @@
-Rodrigo Erlandsen Carcamo, Patricio Lobos Ojeda
+Rodrigo Erlandsen Carcamo,  Patricio Lobos Ojeda
