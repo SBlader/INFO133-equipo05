@@ -1,0 +1,154 @@
+<mxfile host="65bd71144e">
+    <diagram id="k0Klt2_YZVX7qhWecQEq" name="Page-1">
+        <mxGraphModel dx="957" dy="369" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="12" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="2" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=none;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;" parent="1" source="23" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;" parent="1" source="21" target="8" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=none;" parent="1" source="28" target="11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Comuna" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="470" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Indicadores_Estadisticos" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="700" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Farmacia" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="640" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Carabineros" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="640" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Antenas" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="470" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="ID" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="295" y="465" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Nombre" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="465" y="430" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Tipo" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="630" y="700" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Ubicacion" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="700" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Tener" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="580" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="" style="edgeStyle=none;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;endArrow=none;" parent="1" source="2" target="23" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="480" y="530" as="sourcePoint"/>
+                        <mxPoint x="620" y="640" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="Servir" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="540" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;endArrow=none;" parent="1" source="2" target="21" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="530" as="sourcePoint"/>
+                        <mxPoint x="220" y="640" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="Trabajar" style="rhombus;whiteSpace=wrap;html=1;rotation=0;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="540" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;" parent="1" source="2" target="28" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="480" y="500" as="sourcePoint"/>
+                        <mxPoint x="680" y="500" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="Instalar" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="460" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="Empresa" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="420" width="70" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Direccion" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="730" y="420" width="60" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="Ubicacion" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="700" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="horario" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="700" width="60" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="Fecha_Turno" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="665" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="Nombre_Indicador" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="760" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="Descripcion" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="760" width="70" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="Tematica" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="730" width="60" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="70" y="765" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="670" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="535" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="valor" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="630" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="Año" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="630" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="510" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="470" y="470" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="530" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="580" y="600" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="630" y="470" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="600" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="&lt;h1&gt;modelo relacional&lt;/h1&gt;&lt;div&gt;Comuna(PK_ID,Nombre,Pais,Region&lt;span style=&quot;background-color: initial;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Indicadores(PK_Nombre_Indicadores,Tematica,Descripcion)&lt;/div&gt;&lt;div&gt;Carabineros(PK_Nombre,Ubicacion,Tipo,FK_Comuna)&lt;/div&gt;&lt;div&gt;Antenas(PK_Ubicacion,Empresa,FK_Comuna)&lt;/div&gt;&lt;div&gt;Farmacia(PK_Ubicacion,Fecha_Turno,Cadena,Horario,FK_Comuna)&lt;/div&gt;&lt;div&gt;Tener(PK(FK_Comuna,FK_Indicadores,Año),Valor)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry y="820" width="820" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="Region" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="430" width="65" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="Pais" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="430" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="Nombre" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="670" width="60" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="El parama laboral lo contiene Comnuna ya que es solo uno y unico a su vez para cada comuna" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="460" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="Cadena" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="625" width="60" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
