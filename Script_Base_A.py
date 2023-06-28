@@ -19,11 +19,12 @@ cur = conn.cursor()
 
 # Create Database
 query_create = "CREATE DATABASE Base_Datos_A"
+cur.execute("DROP DATABASE Base_Datos_A")
 cur.execute(query_create)
 cur.execute("USE Base_Datos_A")
 cur.execute("CREATE TABLE Prensa (id INT NOT NULL AUTO_INCREMENT, Region CHAR(16), Ciudad CHAR(32), Nombre CHAR(32), Continente CHAR(16), pais CHAR(32), Año_Fundacion DATE, PRIMARY KEY(id))")
 cur.execute("CREATE TABLE Redes (Tipo_R CHAR(16), Usuario CHAR(32), IDPrensa INT NOT NULL AUTO_INCREMENT,  PRIMARY KEY(Tipo_R,Usuario), FOREIGN KEY (IDPrensa) REFERENCES Prensa(id))")
-cur.execute("CREATE TABLE Categoria (Tipo CHAR(16), URL VARCHAR(2083), PRIMARY KEY(URL))")
+cur.execute("CREATE TABLE Categoria (idCategoria INT NOT NULL AUTO_INCREMENT Tipo CHAR(16), URL VARCHAR(2083), PRIMARY KEY(idCategoria))")
 cur.execute("CREATE TABLE Fundadores (Fecha_N DATE, Nombre CHAR(32), ID INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(ID))")
 cur.execute("CREATE TABLE Ejemplo_N (XPATH_T CHAR(64), XPATH_C CHAR(128), XPATH_F CHAR(128), URL VARCHAR(2083), IDPrensa INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(URL), FOREIGN KEY (IDPrensa) REFERENCES Prensa(id))")
 cur.execute("CREATE TABLE Tener (IDPrensa INT NOT NULL AUTO_INCREMENT, Categoria_url VARCHAR(2083), PRIMARY KEY(IDPrensa,Categoria_url), FOREIGN KEY (IDPrensa) REFERENCES Prensa(id), FOREIGN KEY (Categoria_url) REFERENCES Categoria(URL))")
