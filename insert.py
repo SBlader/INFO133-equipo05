@@ -36,14 +36,11 @@ def InsertarMedio():
         correcto=input("¿La información es correcta?, (Y/n): ")
         if(correcto=="Y" or correcto=="y"):
             sigue=False
-    ASCII="ABCDEFGHIJKLMNOPQRSTUVXYZ0123456789"
-    IDMedio=""
-    for i in range(0,4,1):
-        IDMedio+=ASCII[random.randint(0,len(ASCII)-1)]
     #consulta="INSERT INTO Prensa (id, Region, Ciudad, Nombre, Continente, pais, Año_Fundacion) VALUES (%s,%s,%s,%s,%s);"
     try:
-        cur.execute("INSERT INTO Prensa (id, Region, Ciudad, Nombre, Continente, pais, Año_Fundacion) VALUES (?, ?, ?, ?, ?, ?, ?)",(IDMedio, infoPrensaArray[4], infoPrensaArray[5], infoPrensaArray[0], infoPrensaArray[2], infoPrensaArray[3], infoPrensaArray[1]))
+        cur.execute("INSERT INTO Prensa (Region, Ciudad, Nombre, Continente, pais, Año_Fundacion) VALUES (?, ?, ?, ?, ?, ?, ?)",(infoPrensaArray[4], infoPrensaArray[5], infoPrensaArray[0], infoPrensaArray[2], infoPrensaArray[3], infoPrensaArray[1]))
         print("Datos Insertados correctamente")
+        IDPrensa=cur.execute("SELECT LAST_INSERT_ID()")
     except mariadb.Error as e: 
         print(f"Error: {e}")
         insercion = False
@@ -51,33 +48,59 @@ def InsertarMedio():
     #Tabla Redes
     if(insercion):
         sigue=True
+        correcto=True
         VarConsulta = ""
         while(VarConsulta != "y" and VarConsulta != "n"):
             VarConsulta = input("¿El medio tiene una o mas redes sociales? Y/n: ").lower()
             if (VarConsulta=="n"):
                 sigue=False
         while(sigue):
-            infoRed=input("Muy bien!, ahora ingrese el tipo de la red social(Facebook,Instagram,etc) y el usuario o entidad que la maneja(ej: @Elcomerico_peru). separe los datos con ', ': ")
-            infoRedArray=infoPrensa.split(", ")
-            while (len(infoRedArray)!= 2):
-                infoRed=input("Por favor, siga el formato establecido. ")
-                infoRedArray=infoRed.split(", ")
-            print(infoRedArray)
-            correcto=input("¿La información es correcta?, (Y/n): ")
-            if(correcto=="Y" or correcto=="y"):
-                sigue=False
-        ASCII="ABCDEFGHIJKLMNOPQRSTUVXYZ0123456789"
-        IDMedio=""
-        for i in range(0,4,1):
-            IDMedio+=ASCII[random.randint(0,len(ASCII)-1)]
+            while(correcto):
+                infoRed=input("Muy bien!, ahora ingrese el tipo de la red social(Facebook,Instagram,etc) y el usuario o entidad que la maneja(ej: @Elcomerico_peru). separe los datos con ', ': ")
+                infoRedArray=infoPrensa.split(", ")
+                while (len(infoRedArray)!= 2):
+                    infoRed=input("Por favor, siga el formato establecido. ")
+                    infoRedArray=infoRed.split(", ")
+                print(infoRedArray)
+                if(input("¿La información es correcta?, (Y/n): ").lower()=="n"):
+                    correcto=False
         try:
-            cur.execute("INSERT INTO Redes (Tipo_R, URL, ) VALUES (?, ?, ?, ?, ?, ?, ?)",(IDMedio, infoPrensaArray[4], infoPrensaArray[5], infoPrensaArray[0], infoPrensaArray[2], infoPrensaArray[3], infoPrensaArray[1]))
+            cur.execute("INSERT INTO Redes (Tipo_R, URL, IDPrensa) VALUES (?, ?, ?)",(infoRedArray[0],infoRedArray[1],IDPrensa))
+            print("Datos Insertados correctamente")
+            if (input("¿Desea insertar otra red? Y/n: ").lower()=="n"):
+                sigue=False
         except mariadb.Error as e: 
             print(f"Error: {e}")
     #Tabla Fundadores
-
+    if(insercion):
+        sigue=True
+        correcto=True
+        VarConsulta = ""
+        while(VarConsulta != "y" and VarConsulta != "n"):
+            VarConsulta = input("¿Conoce al/los fundador/es? Y/n: ").lower()
+            if (VarConsulta=="n"):
+                sigue=False
+            FundadoresID=[]
+        while(sigue):
+            while(correcto):
+                infoFundador=input("Muy bien!, ahora ingrese el nombre y año de nacimiento de un fundador. separe los datos con ', ': ")
+                infoFundadorArray=infoFundador.split(", ")
+                while (len(infoFundadorArray)!= 2):
+                    infoFundador=input("Por favor, siga el formato establecido. ")
+                    infoFundadorArray=infoFundador.split(", ")
+                print(infoFundadorArray)
+                if(input("¿La información es correcta?, (Y/n): ").lower()=="n"):
+                    correcto=False
+        try:
+            cur.execute("INSERT INTO Fundadores (Nombre, Fecha_N) VALUES (?, ?)",(infoFundadorArray[0],infoRedArray[1]))
+            print("Datos Insertados correctamente")
+            FundadoresID.append(cur.execute("SELECT LAST_INSERT_ID()"))
+            if (input("¿Desea insertar otro fundador? Y/n: ").lower()=="n"):
+                sigue=False
+        except mariadb.Error as e:
+            print(f"Error: {e}")
     #Tabla Ejemplo_N
-
+    
     conn.commit()
     conn.close()
     print("Medio")
