@@ -40,13 +40,12 @@ def CrearCategoria():
             sigue=False
 
 def InsertarMedio():
-    insercion = True
     sigue = True
     #Tabla Prensa
     while(sigue):
         correcto=False
         while not(correcto):
-            info=input("Por favor, ingrese el nombre del medio de prensa, su año de fundación (Formato: YYYY-MM-DD), el continete de origen, el pais, la región y la ciudad. separe los datos con ', ': ")
+            info=input("Por favor, ingrese el nombre del medio de prensa, su año de fundación (Formato: YYYY), el continete de origen, el pais, la región y la ciudad. separe los datos con ', ': ")
             infoArray=info.split(", ")
             while (len(infoArray)!= 6):
                 info=input("Por favor, siga el formato establecido. ")
@@ -60,6 +59,7 @@ def InsertarMedio():
             IDPrensa=cur.lastrowid
             print(IDPrensa)
             sigue = False
+            insercion=True
         except mariadb.Error as e: 
             print(f"Error: {e}")
             insercion = False
@@ -98,16 +98,12 @@ def InsertarMedio():
         while(sigue):
             correcto=False
             while not(correcto):
-                info=input("Ahora ingrese el nombre y año de nacimiento de un fundador. separe los datos con ', ': ")
-                infoArray=info.split(", ")
-                while (len(infoArray)!= 2):
-                    info=input("Por favor, siga el formato establecido. ")
-                    infoArray=info.split(", ")
-                print(infoArray)
+                info=input("Ahora ingrese el nombre de un fundador: ")
+                print(info)
                 if(input("¿La información es correcta?, (Y/n): ").lower()=="y"):
                     correcto=True
             try:
-                cur.execute("INSERT INTO Fundadores (Nombre, Fecha_N) VALUES (?, ?)",(infoArray[0],infoArray[1]))
+                cur.execute("INSERT INTO Fundadores (Nombre) VALUES (?)",(info,))
                 conn.commit()
                 print("Datos Insertados correctamente")
                 FundadoresID.append(cur.lastrowid)
@@ -181,8 +177,14 @@ def InsertarMedio():
             for row in cur:
                     for field in row:
                         actuales.append(field)
-            while(int(Categoria)>=len(info) or (int(Categoria)<0) or (IDs[int(Categoria)] in actuales) and (Categoria!="+") ):
-                Categoria=input("Por favor ingrese un numero valido o un +: ")
+            valido = False
+            while not(valido):
+                try:
+                    while((Categoria!="+") and ((int(Categoria)>=len(info)) or (int(Categoria)<0) or (IDs[int(Categoria)] in actuales))):
+                        Categoria=input("Por favor ingrese un numero valido o un +: ")
+                    valido=True
+                except:
+                    Categoria=input("Por favor ingrese un numero valido o un +: ")
             if (Categoria=="+"):
                 CrearCategoria()
                 IdCategoria=cur.lastrowid
