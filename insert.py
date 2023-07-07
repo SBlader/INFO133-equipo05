@@ -1,6 +1,5 @@
 import mariadb
 import sys
-import random
 
 # Connect to MariaDB Platform
 try:
@@ -38,6 +37,7 @@ def CrearCategoria():
         except mariadb.Error as e: 
             print(f"Error: {e}")
             sigue=False
+    conn.commit()
 
 def InsertarMedio():
     sigue = True
@@ -95,6 +95,11 @@ def InsertarMedio():
         sigue=True
         VarConsulta = ""
         FundadoresID=[]
+        cur.execute("SELECT f.ID, f.Nombre, p.Nombre FROM Fundadores f JOIN Crear c ON c.IDFundadores=f.ID JOIN Prensa p ON p.ID=c.IDPrensa")
+        Fundadores=cur.fetchall()
+        FundadoresNombre=[]
+        for i in Fundadores:
+            FundadoresNombre.append(i[1])
         while(sigue):
             correcto=False
             while not(correcto):
@@ -103,17 +108,28 @@ def InsertarMedio():
                 if(input("¿La información es correcta?, (Y/n): ").lower()=="y"):
                     correcto=True
             try:
-                cur.execute("INSERT INTO Fundadores (Nombre) VALUES (?)",(info,))
-                conn.commit()
-                print("Datos Insertados correctamente")
-                FundadoresID.append(cur.lastrowid)
-                print(IDPrensa)
+                if(info in FundadoresNombre):
+                    print ("Encontramos el nombre en nuestra base de datos")
+                    print ("ID // Medio")
+                    for i in Fundadores:
+                        if(i[1]==info):
+                            print(f"{i[0]} // {i[2]}")
+                    eleccion = int(input("¿Es el fundador algún medio presentado? Si es así porfavor ingrese la ID correspondiente, si no, ingrese -1: "))
+                    if (eleccion == -1):
+                        cur.execute("INSERT INTO Fundadores (Nombre) VALUES (?)",(info,))
+                        print("Datos Insertados correctamente")
+                        FundadoresID.append(cur.lastrowid)
+                    else:
+                        FundadoresID.append(eleccion-1)
+                else:
+                    cur.execute("INSERT INTO Fundadores (Nombre) VALUES (?)",(info,))
+                    print("Datos Insertados correctamente")
+                    FundadoresID.append(cur.lastrowid)
                 if (input("¿Desea insertar otro fundador? Y/n: ").lower()=="n"):
                     sigue=False
             except mariadb.Error as e:
                 print(f"Error: {e}")
                 sigue=False
-            
     #Tabla Ejemplo_N
         sigue=True
         VarConsulta = ""
@@ -188,9 +204,37 @@ def InsertarMedio():
             if (Categoria=="+"):
                 CrearCategoria()
                 IdCategoria=cur.lastrowid
-                cur.execute("INSERT INTO Tener(IDPrensa,IDCategoria) VALUES (?, ?)", (IDPrensa,IdCategoria))
+                correcto=False
+                while not(correcto):
+                    info=input("Por favor, ingrese Ingrese URL de la Categoria, URL de las Paginas de la categoria, la exprecion XPATH para la URL. separe los datos con ', ': ")
+                    infoArray=info.split(", ")
+                    while (len(infoArray)!= 3):
+                        info=input("Por favor, siga el formato establecido. ")
+                        infoArray=info.split(", ")
+                    print(infoArray)
+                    if(input("¿La información es correcta?, (Y/n): ").lower()=="y"):
+                        correcto=True
+                try:
+                    cur.execute("INSERT INTO Tener(IDPrensa, IDCategoria, XPATH_N, URL_P, URL_C) VALUES (?, ?, ?, ?, ?)", (IDPrensa,IdCategoria,infoArray[2],infoArray[1],infoArray[0]))
+                    print("Datos Insertados correctamente")
+                except mariadb.Error as e:
+                    print(f"Error: {e}")
             else:
-                cur.execute("INSERT INTO Tener (IDPrensa, IDCategoria) VALUES (?, ?)",(IDPrensa, IDs[int(Categoria)]))
+                correcto=False
+                while not(correcto):
+                    info=input("Por favor, ingrese Ingrese URL de la Categoria, URL de las Paginas de la categoria, la exprecion XPATH para la URL. separe los datos con ', ': ")
+                    infoArray=info.split(", ")
+                    while (len(infoArray)!= 3):
+                        info=input("Por favor, siga el formato establecido. ")
+                        infoArray=info.split(", ")
+                    print(infoArray)
+                    if(input("¿La información es correcta?, (Y/n): ").lower()=="y"):
+                        correcto=True
+                try:
+                    cur.execute("INSERT INTO Tener(IDPrensa, IDCategoria, XPATH_N, URL_P, URL_C) VALUES (?, ?, ?, ?, ?)",(IDPrensa, IDs[int(Categoria)],infoArray[2],infoArray[1],infoArray[0]))
+                    print("Datos Insertados correctamente")
+                except mariadb.Error as e:
+                    print(f"Error: {e}")
             if (input("¿Desea insertar otra categoría? Y/n: ").lower()=="n"):
                 sigue=False
 

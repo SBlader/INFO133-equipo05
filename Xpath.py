@@ -4,7 +4,7 @@ from requests_html import HTMLSession
 session = HTMLSession()
 
 ## URL que escrapear
-URL = "https://peru.com/actualidad/coronavirus-peru-minsa-se-pronuncia-sobre-si-se-aplicara-una-dosis-anual-de-la-vacuna-contra-el-covid-19-rmmn-noticia/"
+URL = "https://peru.com/actualidad/"
 
 ## Simular que estamos utilizando un navegador web
 USER_AGENT_LIST = [
@@ -32,5 +32,5 @@ headers = {'user-agent':random.choice(USER_AGENT_LIST) }
 response = session.get(URL,headers=headers)
 
 ## Analizar ("to parse") el contenido
-title = response.html.xpath('//div [contains(@class,"story-contents__content")]/div/section')[0].text
+title = response.html.xpath('//h2 [contains(@class, "story-item__content-title overflow-hidden")]//a/@href')
 print(title)

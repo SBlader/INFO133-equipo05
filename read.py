@@ -19,5 +19,14 @@ cur.execute("USE Base_Datos_A")
 sigue = True
 while(sigue):
     consulta = input("Ingrese aquí su consulta SQL")
-    cur.execute(consulta)
-    print("¿desea realizar otra consulta? y/n: ")
+    try:
+        cur.execute(consulta)
+        conn.commit()
+        print("Datos Insertados correctamente")
+    except mariadb.Error as e: 
+        print(f"Error: {e}")
+    consulta = input("¿desea realizar otra consulta? y/n: ")
+    while(consulta.lower()!="y" and consulta.lower()!="n"):
+        consulta = input("siga el formato. ¿desea realizar otra consulta? y/n: ")
+    if(consulta.lower()=="n"):
+        sigue = False

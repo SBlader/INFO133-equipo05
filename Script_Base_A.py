@@ -27,7 +27,7 @@ cur.execute("CREATE TABLE Redes (Tipo_R CHAR(16), Usuario CHAR(32), IDPrensa INT
 cur.execute("CREATE TABLE Categoria (idCategoria INT NOT NULL AUTO_INCREMENT, Tipo CHAR(16), URL VARCHAR(2083), PRIMARY KEY(idCategoria))")
 cur.execute("CREATE TABLE Fundadores (Nombre CHAR(32), ID INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(ID))")
 cur.execute("CREATE TABLE Ejemplo_N (XPATH_T CHAR(64), XPATH_C CHAR(128), XPATH_F CHAR(128), URL VARCHAR(2083), IDPrensa INT, PRIMARY KEY(URL), FOREIGN KEY (IDPrensa) REFERENCES Prensa(id))")
-cur.execute("CREATE TABLE Tener (IDPrensa INT, IDCategoria INT, PRIMARY KEY(IDPrensa,IDCategoria), FOREIGN KEY (IDPrensa) REFERENCES Prensa(id), FOREIGN KEY (IDCategoria) REFERENCES Categoria(idCategoria))")
+cur.execute("CREATE TABLE Tener (IDPrensa INT, IDCategoria INT, URL_C VARCHAR(2083), URL_P VARCHAR(2083), XPATH_N CHAR(128) PRIMARY KEY(IDPrensa,IDCategoria), FOREIGN KEY (IDPrensa) REFERENCES Prensa(id), FOREIGN KEY (IDCategoria) REFERENCES Categoria(idCategoria))")
 cur.execute("CREATE TABLE Crear (IDPrensa INT, IDFundadores INT, PRIMARY KEY(IDPrensa,IDFundadores), FOREIGN KEY (IDPrensa) REFERENCES Prensa(id), FOREIGN KEY (IDFundadores) REFERENCES Fundadores(ID))")
 
 conn.commit() 
